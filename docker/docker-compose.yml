@@ -1,0 +1,36 @@
+version: '3.7'
+services:
+  mongo:
+    image: mongo:5.0.6
+    ports:
+      - 27018:27017
+    volumes:
+      - ./mongo/data:/data/db
+  backend:
+    build:
+      context: ../backend/
+      dockerfile: ../backend/Dockerfile
+    ports:
+      - 3002:3000
+    depends_on:
+      - mongo
+    volumes:
+      - ../backend/:/usr/src/app
+      - nodemodules-backend:/usr/src/app/node_modules
+  
+  frontend:
+    restart: always
+    container_name: frontend
+    build:
+      context: ../frontend/
+      dockerfile: ../frontend/Dockerfile
+    command: yarn serve
+    ports:
+      - 3000:8080
+    volumes:
+      - ../frontend/:/usr/src/client/
+      - nodemodules-frontend:/usr/src/client/node_modules
+
+volumes:
+  nodemodules-frontend: {}
+  nodemodules-backend: {}
