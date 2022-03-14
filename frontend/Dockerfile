@@ -7,6 +7,6 @@ COPY . /usr/src/client
 RUN cp -a /tmp/client/node_modules /usr/src/client
 
 WORKDIR /usr/src/client
-
 RUN rm -rf .env && cp .env.example .env
+
 CMD ["yarn", "serve"]
