@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon server.js",
-    "start:prod": "node server.js"
+    "start:prod": "node server.js",
+    "prettier": "pretty-quick",
+    "lint": "eslint ./*.js"
   },
   "author": "tosettil.me",
   "license": "ISC",
@@ -18,7 +20,11 @@
   "devDependencies": {
     "eslint": "^8.11.0",
     "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.25.4",
-    "nodemon": "^2.0.15"
+    "eslint-plugin-prettier": "^4.0.0",
+    "nodemon": "^2.0.15",
+    "prettier": "^2.5.1",
+    "pretty-quick": "^3.1.3"
   }
 }
