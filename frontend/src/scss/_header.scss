@@ -1,0 +1,49 @@
+.header {
+  border: 1px solid $border-noku-color;
+
+  .logo-container {
+    .logo {
+      max-width: 80px;
+      margin: 0 auto;
+    }
+  }
+
+  .services-container {
+    .list-services {
+      list-style: none;
+      display: flex;
+
+      .list-item {
+        display: inline-block;
+        padding-right: 10px;
+        padding-bottom: 2px;
+
+        &:not(:first-child) {
+          padding: 0 10px;
+        }
+
+        .list-link {
+          text-decoration: none;
+          color: $header-link;
+        }
+
+        &.active {
+          .list-link {
+            position: relative;
+            font-weight: 600;
+
+            &:after {
+              content: '';
+              bottom: -4px;
+              left: 0;
+              height: 1px;
+              width: 100%;
+              background-color: $blu-noku;
+              position: absolute;
+            }
+          }
+        }
+      }
+    }
+  }
+}

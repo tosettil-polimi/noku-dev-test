@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Wallet",
+    "href": "#/"
+  },
+  {
+    "name": "Stake",
+    "href": "#/stake"
+  },
+  {
+    "name": "Token",
+    "href": "#/wallet"
+  },
+  {
+    "name": "Toknraise",
+    "href": "#/toknraise"
+  },
+  {
+    "name": "Exchange",
+    "href": "#/exchange"
+  }
+]

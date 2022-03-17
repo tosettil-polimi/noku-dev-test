@@ -1,0 +1,18 @@
+/* vendor sass */
+@import "~bootstrap/scss/bootstrap-grid";
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap');
+
+/* my sass */
+* {
+  font-family: 'Lato';
+}
+
+body {
+  margin: 0;
+}
+
+// variables
+@import "variables";
+
+// contents
+@import "header";

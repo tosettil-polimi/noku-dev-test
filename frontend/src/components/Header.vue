@@ -1,0 +1,47 @@
+<template>
+  <div class="header container-fluid">
+    <div class="row align-items-center">
+      <div class="col-md-1">
+        <div class="logo-container">
+          <img class="logo" src="@/assets/img/logo.png" alt="Noku.io">
+        </div>
+      </div>
+      <div class="col-md-10">
+        <div class="services-container">
+          <ul class="list-services">
+            <li :class="{'list-item': true, 'active': service?.href === location}"
+                v-for="service in services" :key="service?.href">
+              <a :href="service.href" class="list-link">
+                {{ service.name }}
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-1">
+        <div class="avatar-container">
+          <a href="#">
+            <img src="@/assets/img/avatar.svg" alt="username">
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+<script>
+export default {
+  name: 'HeaderComponent',
+  data() {
+    return {
+      location: '#/'
+    }
+  },
+  props: {
+    services: Array
+  },
+  created() {
+    // hardcode for trigger router change, no vue-router in this project
+    window.addEventListener('hashchange', () => this.location = window.location.hash || '#/')
+  }
+}
+</script>
