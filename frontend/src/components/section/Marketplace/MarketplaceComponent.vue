@@ -24,7 +24,7 @@
   </div>
 </template>
 <script>
-import SliderComponent from "@/components/SliderComponent";
+import SliderComponent from "@/components/elements/Slider/SliderComponent";
 import TitleSectionComponent from "@/components/typography/TitleSection/TitleSectionComponent";
 
 export default {
@@ -42,3 +42,6 @@ export default {
   }
 }
 </script>
+<style lang="scss">
+@import "MarketplaceStyle";
+</style>

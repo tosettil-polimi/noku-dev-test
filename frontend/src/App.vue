@@ -7,11 +7,11 @@
 </template>
 
 <script>
-import HeaderComponent from "@/components/HeaderComponent";
+import HeaderComponent from "@/components/layout/Header/HeaderComponent";
 import services from '@/json/services.json';
 import tabs from '@/json/tabs.json';
-import SubHeaderComponent from "@/components/SubHeaderComponent";
-import MarketplaceComponent from "@/components/MarketplaceComponent";
+import SubHeaderComponent from "@/components/layout/SubHeader/SubHeaderComponent";
+import MarketplaceComponent from "@/components/section/Marketplace/MarketplaceComponent";
 
 export default {
   name: 'App',
@@ -30,8 +30,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import "scss/style";
-
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
