@@ -1,12 +1,12 @@
 <template>
   <div class="header container-fluid">
     <div class="row align-items-center">
-      <div class="col-md-1">
+      <div class="col-sm-1">
         <div class="logo-container">
           <img class="logo" src="@/assets/img/logo.png" alt="Noku.io">
         </div>
       </div>
-      <div class="col-md-10">
+      <div class="col-sm-10">
         <div class="services-container">
           <ul class="list-services">
             <li :class="{'list-item': true, 'active': service?.href === location}"
@@ -18,7 +18,7 @@
           </ul>
         </div>
       </div>
-      <div class="col-md-1">
+      <div class="col-sm-1">
         <div class="avatar-container">
           <a href="#">
             <img src="@/assets/img/avatar.svg" alt="username">
