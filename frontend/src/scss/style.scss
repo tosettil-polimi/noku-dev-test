@@ -1,6 +1,7 @@
 /* vendor sass */
 @import "~bootstrap/scss/bootstrap-grid";
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;700;900&display=swap');
 
 /* my sass */
 * {
@@ -14,6 +15,8 @@ body {
 // variables
 @import "variables";
 
-// contents
-@import "header";
-@import "sub_header";
+// components
+@import "components/header";
+@import "components/sub_header";
+@import "components/marketplace";
+@import "components/slider";

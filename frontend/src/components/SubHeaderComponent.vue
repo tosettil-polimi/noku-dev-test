@@ -3,7 +3,9 @@
     <div class="row align-items-center">
       <div class="col-12 tab-headers-container">
         <div class="tab-header" v-for="tab in tabs" :key="tab.name">
-          <span :class="{'tab-header-name': true, 'active': tab.name === selectedCopy }" @click="selectedCopy = tab.name">
+          <span
+              :class="{'tab-header-name': true, 'active': tab.name === selected }"
+              @click="selected = tab.name">
             {{ tab.name }}
           </span>
         </div>
@@ -16,17 +18,17 @@ export default {
   name: 'SubHeaderComponent',
   data() {
     return {
-      selectedCopy: this.selected
+      selected: this.selectedName
     }
   },
   props: {
     tabs: Array,
-    selected: String
+    selectedName: String
   },
   watch: {
-    selectedCopy: function () {
+    selected: function () {
       // emit event tab changing
-      this.$emit('tab:change', this.tabs.find((tab) => tab.name === this.selectedCopy))
+      this.$emit('tab:change', this.tabs.find((tab) => tab.name === this.selected))
     }
   }
 }

@@ -1,5 +1,6 @@
 .header {
   border: 1px solid $border-noku-color;
+  box-sizing: border-box;
 
   .logo-container {
     .logo {
@@ -46,6 +47,12 @@
             }
           }
         }
+      }
+    }
+
+    .avatar-container {
+      .link {
+        float: right;
       }
     }
   }

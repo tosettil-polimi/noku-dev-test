@@ -1,0 +1,24 @@
+.title-section {
+  width: 100%;
+  text-align: left;
+  float: left;
+
+  .title {
+    color: $header-link;
+    display: block;
+    margin: 0;
+    line-height: 30px;
+    font-weight: 700;
+    font-size: 25px;
+  }
+
+  .subtitle {
+    color: $header-link;
+    display: block;
+    margin: 0;
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 18px;
+    letter-spacing: 0.25px;
+  }
+}

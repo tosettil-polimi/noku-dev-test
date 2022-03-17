@@ -1,0 +1,12 @@
+.marketplace {
+  padding: 48px 0 80px 0;
+  box-sizing: border-box;
+  background-image: url(@/assets/img/marketplace/doodle.svg);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  .title-marketplace {
+    margin-bottom: 50px;
+  }
+}

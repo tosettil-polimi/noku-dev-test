@@ -1,5 +1,6 @@
 .sub-header {
   background: $noku-sub-header-gradient;
+  box-sizing: border-box;
 
   .tab-headers-container {
     padding: 23px 0;

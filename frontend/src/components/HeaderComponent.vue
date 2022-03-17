@@ -3,7 +3,7 @@
     <div class="row align-items-center">
       <div class="col-sm-1">
         <div class="logo-container">
-          <img class="logo" src="@/assets/img/logo.png" alt="Noku.io">
+          <img class="logo" src="@/assets/img/header/logo.png" alt="Noku.io">
         </div>
       </div>
       <div class="col-sm-10">
@@ -21,7 +21,7 @@
       <div class="col-sm-1">
         <div class="avatar-container">
           <a href="#">
-            <img src="@/assets/img/avatar.svg" alt="username">
+            <img src="@/assets/img/header/avatar.svg" alt="username">
           </a>
         </div>
       </div>

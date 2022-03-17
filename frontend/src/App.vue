@@ -1,8 +1,8 @@
 <template>
   <main>
     <HeaderComponent :services="services"/>
-    <SubHeaderComponent :tabs="tabs" :selected="tabs[0].name" />
-    <img alt="Vue logo" src="@/assets/img/logo.png">
+    <SubHeaderComponent :tabs="tabs" :selected-name="tabs[0].name"/>
+    <MarketplaceComponent/>
   </main>
 </template>
 
@@ -11,16 +11,18 @@ import HeaderComponent from "@/components/HeaderComponent";
 import services from '@/json/services.json';
 import tabs from '@/json/tabs.json';
 import SubHeaderComponent from "@/components/SubHeaderComponent";
+import MarketplaceComponent from "@/components/MarketplaceComponent";
 
 export default {
   name: 'App',
   data() {
     return {
-      services: services,
-      tabs: tabs
+      services,
+      tabs
     }
   },
   components: {
+    MarketplaceComponent,
     SubHeaderComponent,
     HeaderComponent
   }

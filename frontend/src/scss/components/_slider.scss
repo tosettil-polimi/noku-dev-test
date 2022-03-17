@@ -1,0 +1,56 @@
+.slider {
+  background-size: cover;
+  border-radius: 3px;
+  display: flex;
+
+  &.slider-main {
+    align-items: center;
+    justify-content: center;
+  }
+
+  &.slider-banner {
+    align-items: flex-end;
+    flex-direction: column;
+  }
+
+  .main {
+    font-family: 'Montserrat';
+    color: white;
+    text-transform: uppercase;
+
+    .title {
+      margin: 0;
+      font-weight: 900;
+      font-size: 67px;
+      letter-spacing: 0.25px;
+    }
+
+    .subtitle {
+      margin: 0;
+      font-weight: 900;
+      font-size: 36px;
+      letter-spacing: 0.25px;
+    }
+  }
+
+  .banner {
+    color: white;
+    text-align: left;
+    margin: auto 16px 16px 0;
+
+    .title {
+      text-transform: uppercase;
+      margin: 0;
+      font-weight: 700;
+      font-size: 17px;
+      letter-spacing: 0.15px;
+    }
+
+    .subtitle {
+      margin: 0;
+      font-weight: 300;
+      font-size: 15px;
+      letter-spacing: 0.25px;
+    }
+  }
+}
