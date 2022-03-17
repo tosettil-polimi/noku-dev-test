@@ -1,24 +1,28 @@
 <template>
-  <HeaderComponent :services="services"/>
-  <img alt="Vue logo" src="@/assets/img/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <main>
+    <HeaderComponent :services="services"/>
+    <SubHeaderComponent :tabs="tabs"/>
+    <img alt="Vue logo" src="@/assets/img/logo.png">
+  </main>
 </template>
 
 <script>
-import HelloWorld from '@/components/HelloWorld.vue'
-import HeaderComponent from "@/components/Header";
+import HeaderComponent from "@/components/HeaderComponent";
 import services from '@/json/services.json';
+import tabs from '@/json/tabs.json';
+import SubHeaderComponent from "@/components/SubHeaderComponent";
 
 export default {
   name: 'App',
   data() {
     return {
-      services: services
+      services: services,
+      tabs: tabs
     }
   },
   components: {
-    HeaderComponent,
-    HelloWorld
+    SubHeaderComponent,
+    HeaderComponent
   }
 }
 </script>

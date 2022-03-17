@@ -1,0 +1,26 @@
+.sub-header {
+  background: $noku-sub-header-gradient;
+
+  .tab-headers-container {
+    padding: 23px 0;
+
+    .tab-header {
+      cursor: pointer;
+      display: inline-block;
+
+      &:not(:first-child) {
+        margin-left: 32px;
+      }
+
+      .tab-header-name {
+        color: $tab-header-title;
+        opacity: 0.7;
+        font-size: 17px;
+
+        &.active {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
