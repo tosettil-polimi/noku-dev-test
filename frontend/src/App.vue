@@ -1,7 +1,7 @@
 <template>
   <main>
     <HeaderComponent :services="services"/>
-    <SubHeaderComponent :tabs="tabs"/>
+    <SubHeaderComponent :tabs="tabs" :selected="tabs[0].name" />
     <img alt="Vue logo" src="@/assets/img/logo.png">
   </main>
 </template>
