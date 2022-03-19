@@ -3,6 +3,7 @@
     <HeaderComponent :services="services"/>
     <SubHeaderComponent :tabs="tabs" :selected-name="tabs[0].name"/>
     <MarketplaceComponent/>
+    <BidComponent />
   </main>
 </template>
 
@@ -12,6 +13,7 @@ import services from '@/json/services.json';
 import tabs from '@/json/tabs.json';
 import SubHeaderComponent from "@/components/layout/SubHeader/SubHeaderComponent";
 import MarketplaceComponent from "@/components/section/Marketplace/MarketplaceComponent";
+import BidComponent from "@/components/section/Bid/BidComponent";
 
 export default {
   name: 'App',
@@ -22,19 +24,10 @@ export default {
     }
   },
   components: {
+    BidComponent,
     MarketplaceComponent,
     SubHeaderComponent,
     HeaderComponent
   }
 }
 </script>
-
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-</style>

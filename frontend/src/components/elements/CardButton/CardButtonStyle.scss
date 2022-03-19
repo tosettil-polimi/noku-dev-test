@@ -1,0 +1,27 @@
+.card-button {
+  padding: 10px 16px;
+  margin: 0 auto;
+  border-radius: 3px;
+  display: block;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 20px;
+  letter-spacing: 0.5px;
+  color: $white-noku;
+  border: none;
+  cursor: pointer;
+
+  .card-button-icon {
+    margin-right: 9px;
+    display: inline-block;
+    width: 18px;
+  }
+
+  &.bid {
+    background: linear-gradient(90deg, #4BA600 0%, #8EE000 100%);
+  }
+
+  &.sell {
+    background: linear-gradient(270deg, $blu-noku 0%, $pink-noku 100%);
+  }
+}

@@ -1,0 +1,13 @@
+[
+  {
+    "_id": 1,
+    "name": "Vitalik Buterin",
+    "price": 1,
+    "image": "/cards/1-vitalik-buterin.png",
+    "type": "master",
+    "bid": {
+      "bidNumber": 20,
+      "lastSalePrice": 1.98
+    }
+  }
+]
