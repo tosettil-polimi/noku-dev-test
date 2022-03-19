@@ -1,8 +1,11 @@
 $border-noku-color: #F2F2F2;
 $blu-noku: #4446ED;
 $pink-noku: #9616E5;
-$header-link: #4A4A4A;
-$tab-header-title: #ECEDFD;
+$black-noku: #4A4A4A;
+$grey-noku: #ECEDFD;
+$white-noku: #FFFFFF;
+$header-link: $black-noku;
+$tab-header-title: $grey-noku;
 $slider-gradient-a: rgba(42, 3, 67, 0);
 $slider-gradient-b: #2A0343;
 $noku-sub-header-gradient: linear-gradient(270deg, $blu-noku 0%, $pink-noku 100%);
