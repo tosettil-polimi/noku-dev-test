@@ -43,27 +43,28 @@
         </div>
       </div>
       <div class="card-footer">
-        <!-- todo: @click for modal -->
-        <CardButtonComponent :type="offerType" />
+        <CardButtonComponent @click="modalOpened = true" :type="offerType" />
       </div>
     </div>
+    <NFTActionModalComponent :open="modalOpened" @closing="modalOpened = false" />
   </div>
 </template>
 <script>
 import CardLabelComponent from "@/components/typography/CardLabel/CardLabelComponent";
-import { DateTime, Duration } from "luxon";
 import CardButtonComponent from "@/components/elements/CardButton/CardButtonComponent";
+import NFTActionModalComponent from "@/components/elements/NFTActionModal/NFTActionModalComponent";
+import timer_expiration from "@/mixins/timer_expiration";
 
 export default {
   name: 'NFTCardComponent',
-  components: {CardButtonComponent, CardLabelComponent},
+  components: {NFTActionModalComponent, CardButtonComponent, CardLabelComponent},
   data() {
     return {
-      now: DateTime.local(),
       favorite: false,
-      timer: null
+      modalOpened: false
     }
   },
+  mixins: [timer_expiration],
   props: {
     // fields in the `card` schema
     nftCard: Object,    // { name: String, type: String, price: Number, image: String, type: String }
@@ -73,23 +74,10 @@ export default {
     },
     // bidNumber, lastSalePrice will be calculated from backend db
     bid: Object,         // { bidNumber: Number, lastSalePrice: Number }
-    expiration: Object  // expiration of the sell or bid
-  },
-  mounted() {
-    this.timer = setInterval(() => this.now = DateTime.local(), 1000)
-  },
-  unmounted() {
-    clearInterval(this.timer)
   },
   computed: {
     imageSource() {
       return `${process.env.VUE_APP_S3_STORAGE_LINK}${this.nftCard.image}`
-    },
-    remaining() {
-      return this.expiration.diff(this.now).toObject()
-    },
-    displayTimer() {
-      return Duration.fromObject(this.remaining).toFormat(`d'd' : hh'h' : mm'm' : ss's'`)
     }
   }
 }
