@@ -46,18 +46,16 @@
         <CardButtonComponent @click="modalOpened = true" :type="offerType" />
       </div>
     </div>
-    <NFTActionModalComponent :open="modalOpened" @closing="modalOpened = false" />
   </div>
 </template>
 <script>
 import CardLabelComponent from "@/components/typography/CardLabel/CardLabelComponent";
 import CardButtonComponent from "@/components/elements/CardButton/CardButtonComponent";
-import NFTActionModalComponent from "@/components/elements/NFTActionModal/NFTActionModalComponent";
 import timer_expiration from "@/mixins/timer_expiration";
 
 export default {
   name: 'NFTCardComponent',
-  components: {NFTActionModalComponent, CardButtonComponent, CardLabelComponent},
+  components: {CardButtonComponent, CardLabelComponent},
   data() {
     return {
       favorite: false,
