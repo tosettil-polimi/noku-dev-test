@@ -10,16 +10,22 @@
 </template>
 <script>
 export default {
-  name: 'TitleSectionComponent',
-  data() {
-    return {}
-  },
+  name: "TitleSectionComponent",
   props: {
-    title: String,
-    subtitle: String
-  }
-}
+    title: {
+      type: String,
+      default: "",
+    },
+    subtitle: {
+      type: String,
+      default: "",
+    },
+  },
+  data() {
+    return {};
+  },
+};
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 @import "TitleSectionStyle";
 </style>

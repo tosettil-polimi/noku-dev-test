@@ -1,7 +1,9 @@
 <template>
-  <div  :class="{'slider': true, 'slider-banner': type === 'banner', 'slider-main': type === 'main'}"
-        :style="{ backgroundImage: `url(${image})`, height: `${height}px` }" >
-    <div :class="type" >
+  <div
+    :class="['slider', `slider-${type}`]"
+    :style="{ backgroundImage: `url(${image})`, height: `${height}px` }"
+  >
+    <div :class="type">
       <h2 class="title">
         {{ content.title }}
       </h2>
@@ -13,21 +15,32 @@
 </template>
 <script>
 export default {
-  name: 'SliderComponent',
-  data() {
-    return {}
-  },
+  name: "SliderComponent",
   props: {
-    type: String,   // banner | main
-    image: String,
-    content: Object, // { title: String, subtitle: String }
+    type: {
+      // banner | main
+      type: String,
+      default: "banner",
+    },
+    image: {
+      type: String,
+      required: true,
+    },
+    content: {
+      // { title: String, subtitle: String }
+      type: Object,
+      required: true,
+    },
     height: {
       type: Number,
-      default: 224
-    }
-  }
-}
+      default: 224,
+    },
+  },
+  data() {
+    return {};
+  },
+};
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 @import "SliderStyle";
 </style>

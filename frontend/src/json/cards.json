@@ -5,6 +5,7 @@
     "price": 1,
     "image": "/cards/1-vitalik-buterin.png",
     "type": "master",
+    "rarity": "common",
     "bid": {
       "bidNumber": 20,
       "lastSalePrice": 1.98

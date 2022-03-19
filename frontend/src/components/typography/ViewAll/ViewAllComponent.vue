@@ -3,9 +3,9 @@
 </template>
 <script>
 export default {
-  name: 'ViewAllComponent'
-}
+  name: "ViewAllComponent",
+};
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 @import "ViewAllStyle";
 </style>

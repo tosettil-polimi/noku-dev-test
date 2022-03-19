@@ -2,10 +2,11 @@
   <div class="sub-header container-fluid">
     <div class="row align-items-center">
       <div class="col-12 tab-headers-container">
-        <div class="tab-header" v-for="tab in tabs" :key="tab.name">
+        <div v-for="tab in tabs" :key="tab.name" class="tab-header">
           <span
-              :class="{'tab-header-name': true, 'active': tab.name === selected }"
-              @click="selected = tab.name">
+            :class="{ 'tab-header-name': true, active: tab.name === selected }"
+            @click="selected = tab.name"
+          >
             {{ tab.name }}
           </span>
         </div>
@@ -15,24 +16,33 @@
 </template>
 <script>
 export default {
-  name: 'SubHeaderComponent',
+  name: "SubHeaderComponent",
+  props: {
+    tabs: {
+      type: Array,
+      required: true,
+    },
+    selectedName: {
+      type: String,
+      required: true,
+    },
+  },
   data() {
     return {
-      selected: this.selectedName
-    }
-  },
-  props: {
-    tabs: Array,
-    selectedName: String
+      selected: this.selectedName,
+    };
   },
   watch: {
-    selected: function () {
+    selected() {
       // emit event tab changing
-      this.$emit('tab:change', this.tabs.find((tab) => tab.name === this.selected))
-    }
-  }
-}
+      this.$emit(
+        "tab:change",
+        this.tabs.find((tab) => tab.name === this.selected)
+      );
+    },
+  },
+};
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 @import "SubHeaderStyle";
 </style>

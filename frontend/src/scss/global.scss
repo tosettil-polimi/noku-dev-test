@@ -1,16 +1,24 @@
 /* vendor sass */
 @import "~bootstrap/scss/bootstrap-grid";
+@import "~bootstrap/scss/mixins/transition";
+@import "~bootstrap/scss/mixins/border-radius";
+@import "~bootstrap/scss/mixins/box-shadow";
+@import "~bootstrap/scss/mixins/backdrop";
+@import "~bootstrap/scss/modal";
+
+/* fonts by Google */
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;700;900&display=swap');
 
 /* my sass */
 * {
-  font-family: 'Lato';
+  font-family: 'Lato', sans-serif;
 }
 
 body {
   margin: 0;
-}
 
-// variables
-@import "variables";
+  &.no-scroll {
+    overflow: hidden;
+  }
+}

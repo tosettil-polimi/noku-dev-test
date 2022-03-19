@@ -1,15 +1,16 @@
-const { defineConfig } = require('@vue/cli-service')
+const { defineConfig } = require("@vue/cli-service");
+
 module.exports = defineConfig({
   transpileDependencies: true,
   configureWebpack: {
-    devtool: 'source-map'
+    devtool: "source-map",
   },
   css: {
     sourceMap: true,
     loaderOptions: {
       sass: {
-        additionalData: `@import "@/scss/global.scss";`
-      }
-    }
-  }
-})
+        additionalData: `@import "@/scss/_variables.scss";`,
+      },
+    },
+  },
+});

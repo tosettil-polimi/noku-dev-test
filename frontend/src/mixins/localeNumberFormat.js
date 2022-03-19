@@ -1,0 +1,13 @@
+export default {
+  methods: {
+    localeNumberFormat(
+      numberToFormat,
+      maximumSignificantDigits = 3,
+      locales = "it-IT"
+    ) {
+      return new Intl.NumberFormat(locales, {
+        maximumSignificantDigits,
+      }).format(numberToFormat);
+    },
+  },
+};

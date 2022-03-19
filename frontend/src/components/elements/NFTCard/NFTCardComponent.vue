@@ -3,14 +3,24 @@
     <div class="img-holder">
       <div class="row">
         <div class="col-sm-8 offset-sm-2 text-center">
-          <img class="nft-img" :src="imageSource" :alt="nftCard.name">
+          <img class="nft-img" :src="imageSource" :alt="nftCard.name" />
         </div>
         <div class="col-sm-2">
           <!-- hardcoding just to see "dynamic" clicking, no auth in this proj -->
-          <img v-if="favorite" @click="favorite = !favorite"
-               class="favorite" src="@/assets/img/card/heart-filled.svg" alt="Favorite">
-          <img v-else  @click="favorite = !favorite"
-               class="favorite" src="@/assets/img/card/heart.svg" alt="Favorite">
+          <img
+            v-if="favorite"
+            class="favorite"
+            src="@/assets/img/card/heart-filled.svg"
+            alt="Favorite"
+            @click="favorite = !favorite"
+          />
+          <img
+            v-else
+            class="favorite"
+            src="@/assets/img/card/heart.svg"
+            alt="Favorite"
+            @click="favorite = !favorite"
+          />
         </div>
       </div>
     </div>
@@ -26,60 +36,93 @@
       <div class="card-content">
         <div class="row">
           <div class="col-sm-6">
-            <CardLabelComponent label="List price" :noku-price="nftCard.price"/>
+            <CardLabelComponent
+              label="List price"
+              :noku-price="nftCard.price"
+            />
           </div>
-          <div class="col-sm-6" v-if="offerType === 'bid'">
-            <CardLabelComponent label="Last sale price" :noku-price="bid.lastSalePrice"
-                                orientation="right"/>
+          <div v-if="offerType === 'bid'" class="col-sm-6">
+            <CardLabelComponent
+              label="Last sale price"
+              :noku-price="bid.lastSalePrice"
+              orientation="right"
+            />
           </div>
           <div class="col-sm-6">
-            <CardLabelComponent label="Expire in" type="details" :content="displayTimer"
-                                :orientation="offerType === 'bid' ? 'left' : 'right'"/>
+            <CardLabelComponent
+              label="Expire in"
+              type="details"
+              :content="displayTimer"
+              :orientation="offerType === 'bid' ? 'left' : 'right'"
+            />
           </div>
-          <div class="col-sm-6" v-if="offerType === 'bid'">
-            <CardLabelComponent label="Bid" type="details" :content="`${bid.bidNumber} Bid`"
-                                orientation="right"/>
+          <div v-if="offerType === 'bid'" class="col-sm-6">
+            <CardLabelComponent
+              label="Bid"
+              type="details"
+              :content="`${bid.bidNumber} Bid`"
+              orientation="right"
+            />
           </div>
         </div>
       </div>
       <div class="card-footer">
-        <CardButtonComponent @click="modalOpened = true" :type="offerType" />
+        <CardButtonComponent :type="offerType" @click="modalOpened = true" />
       </div>
     </div>
+    <NFTActionModalComponent
+      :expiration="expiration"
+      :open="modalOpened"
+      :nft-card="nftCard"
+      :type="offerType"
+      @closing="modalOpened = false"
+    />
   </div>
 </template>
 <script>
 import CardLabelComponent from "@/components/typography/CardLabel/CardLabelComponent";
 import CardButtonComponent from "@/components/elements/CardButton/CardButtonComponent";
-import timer_expiration from "@/mixins/timer_expiration";
+import NFTActionModalComponent from "@/components/elements/NFTActionModal/NFTActionModalComponent";
+import timerExpiration from "@/mixins/timerExpiration";
 
 export default {
-  name: 'NFTCardComponent',
-  components: {CardButtonComponent, CardLabelComponent},
+  name: "NFTCardComponent",
+  components: {
+    NFTActionModalComponent,
+    CardButtonComponent,
+    CardLabelComponent,
+  },
+  mixins: [timerExpiration],
+  props: {
+    // fields in the `card` schema
+    nftCard: {
+      type: Object,
+      required: true,
+    }, // { name: String, type: String, price: Number, rarity: String, image: String, type: String }
+    offerType: {
+      // bid | sell
+      type: String,
+      default: "sell",
+    },
+    // bidNumber, lastSalePrice will be calculated from backend db
+    bid: {
+      type: Object,
+      required: true,
+    }, // { bidNumber: Number, lastSalePrice: Number }
+  },
   data() {
     return {
       favorite: false,
-      modalOpened: false
-    }
-  },
-  mixins: [timer_expiration],
-  props: {
-    // fields in the `card` schema
-    nftCard: Object,    // { name: String, type: String, price: Number, image: String, type: String }
-    offerType: {        // bid | sell
-      type: String,
-      default: 'sell'
-    },
-    // bidNumber, lastSalePrice will be calculated from backend db
-    bid: Object,         // { bidNumber: Number, lastSalePrice: Number }
+      modalOpened: false,
+    };
   },
   computed: {
     imageSource() {
-      return `${process.env.VUE_APP_S3_STORAGE_LINK}${this.nftCard.image}`
-    }
-  }
-}
+      return `${process.env.VUE_APP_S3_STORAGE_LINK}${this.nftCard.image}`;
+    },
+  },
+};
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 @import "NFTCardStyle";
 </style>

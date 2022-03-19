@@ -1,0 +1,60 @@
+.noku-input {
+  display: block;
+
+  .label {
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 18px;
+    letter-spacing: 0.1px;
+    color: $black-noku;
+  }
+
+  .input {
+    width: 100%;
+    border: 1px solid $grey-noku-input;
+    margin-top: 8px;
+    padding: 11px 8px;
+    box-sizing: border-box;
+    border-radius: 4px;
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 18px;
+    letter-spacing: 0.25px;
+    color: $black-noku;
+  }
+
+  .unit {
+    position: absolute;
+    font-weight: 300;
+    text-transform: uppercase;
+    margin-left: -56px;
+    margin-top: 20px;
+    font-size: 15px;
+    line-height: 18px;
+    color: $black-noku;
+    letter-spacing: 0.25px;
+  }
+
+  .disabled-input {
+    margin-top: 8px;
+    padding: 11px 8px;
+    width: 100%;
+    background-color: $disabled-grey-noku;
+    border-radius: 4px;
+    color: $black-noku;
+
+    .noku-price {
+      font-weight: 700;
+      font-size: 15px;
+      line-height: 18px;
+      letter-spacing: 0.25px;
+    }
+
+    .fiat-price {
+      font-weight: 300;
+      font-size: 15px;
+      line-height: 18px;
+      letter-spacing: 0.25px;
+    }
+  }
+}
