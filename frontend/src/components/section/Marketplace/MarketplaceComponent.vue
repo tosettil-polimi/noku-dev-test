@@ -9,7 +9,7 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-lg-4">
+      <div class="col-lg-4 col-md-6">
         <SliderComponent
           type="banner"
           :image="sliderAWSImage"
@@ -19,14 +19,14 @@
           }"
         />
       </div>
-      <div class="col-lg-4 mt-4 mt-lg-0">
+      <div class="col-lg-4 col-md-6 mt-4 mt-md-0">
         <SliderComponent
           type="main"
           :image="sliderAWSImage"
           :content="{ title: 'Top 15', subtitle: 'Jolly card' }"
         />
       </div>
-      <div class="col-lg-4 mt-4 mt-lg-0">
+      <div class="col-lg-4 col-md-6 offset-md-3 offset-lg-0 mt-4 mt-lg-0">
         <SliderComponent
           type="banner"
           :image="sliderAWSImage"

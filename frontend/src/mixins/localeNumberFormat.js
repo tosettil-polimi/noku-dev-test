@@ -7,6 +7,8 @@ export default {
     ) {
       return new Intl.NumberFormat(locales, {
         maximumSignificantDigits,
+        maximumFractionDigits: 2,
+        minimumFractionDigits: 0,
       }).format(numberToFormat);
     },
   },

@@ -10,9 +10,9 @@
       </div>
     </div>
     <div class="row card-row">
-      <div v-for="card in cards" :key="card._id" class="col-sm-4">
+      <div v-for="card in cards" :key="card._id" class="col-md-6 col-xl-4">
         <NFTCardComponent
-          offer-type="bid"
+          offer-type="sell"
           :bid="card.bid"
           :nft-card="card"
           :expiration="generateExpiration()"

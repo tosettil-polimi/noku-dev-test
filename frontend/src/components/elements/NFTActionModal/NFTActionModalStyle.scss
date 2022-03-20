@@ -22,6 +22,7 @@
 
       .header-img {
         margin: 24px auto;
+        max-width: 100%;
       }
 
       .modal-close {
@@ -34,6 +35,60 @@
       }
     }
 
+    .modal-body {
+      .modal-title {
+        font-weight: 700;
+        font-size: 17px;
+        line-height: 20px;
+        letter-spacing: 0.15px;
+        color: $black-noku;
+        margin-bottom: 8px;
+        margin-top: 0;
+      }
+
+      .amenties {
+        text-transform: capitalize;
+        display: block;
+        font-weight: 300;
+        font-size: 15px;
+        line-height: 18px;
+        letter-spacing: 0.25px;
+        color: $black-noku;
+      }
+
+      .expiration {
+        margin: 8px 0 24px 23px;
+        font-weight: 300;
+        font-size: 13px;
+        line-height: 16px;
+        letter-spacing: 0.4px;
+        color: $red-noku;
+
+        &.sell {
+          margin-bottom: 16px;
+        }
+
+        .clock {
+          margin-top: 1px;
+          margin-left: -23px;
+          position: absolute;
+          width: 15px;
+          max-width: 100%;
+        }
+      }
+
+      .current-balance {
+        margin-top: 8px;
+        font-weight: 300;
+        font-size: 13px;
+        line-height: 16px;
+        letter-spacing: 0.4px;
+
+        &.right {
+          text-align: right;
+        }
+      }
+    }
 
     .modal-footer {
       background-color: $blu-noku;
@@ -52,6 +107,7 @@
       }
 
       .main-btn {
+        text-transform: capitalize;
         margin: 10px 0;
         padding: 12px 20px;
         float: right;

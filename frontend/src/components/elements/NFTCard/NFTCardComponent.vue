@@ -2,10 +2,10 @@
   <div class="nft-card">
     <div class="img-holder">
       <div class="row">
-        <div class="col-sm-8 offset-sm-2 text-center">
+        <div class="col-8 offset-2 text-center">
           <img class="nft-img" :src="imageSource" :alt="nftCard.name" />
         </div>
-        <div class="col-sm-2">
+        <div class="col-2">
           <!-- hardcoding just to see "dynamic" clicking, no auth in this proj -->
           <img
             v-if="favorite"
@@ -35,20 +35,20 @@
       </div>
       <div class="card-content">
         <div class="row">
-          <div class="col-sm-6">
+          <div class="col-lg-6">
             <CardLabelComponent
               label="List price"
               :noku-price="nftCard.price"
             />
           </div>
-          <div v-if="offerType === 'bid'" class="col-sm-6">
+          <div v-if="offerType === 'bid'" class="col-lg-6">
             <CardLabelComponent
               label="Last sale price"
               :noku-price="bid.lastSalePrice"
               orientation="right"
             />
           </div>
-          <div class="col-sm-6">
+          <div class="col-lg-6">
             <CardLabelComponent
               label="Expire in"
               type="details"
@@ -56,7 +56,7 @@
               :orientation="offerType === 'bid' ? 'left' : 'right'"
             />
           </div>
-          <div v-if="offerType === 'bid'" class="col-sm-6">
+          <div v-if="offerType === 'bid'" class="col-lg-6">
             <CardLabelComponent
               label="Bid"
               type="details"
@@ -74,6 +74,7 @@
       :expiration="expiration"
       :open="modalOpened"
       :nft-card="nftCard"
+      :bid="bid"
       :type="offerType"
       @closing="modalOpened = false"
     />
@@ -107,7 +108,8 @@ export default {
     // bidNumber, lastSalePrice will be calculated from backend db
     bid: {
       type: Object,
-      required: true,
+      required: false,
+      default: null,
     }, // { bidNumber: Number, lastSalePrice: Number }
   },
   data() {

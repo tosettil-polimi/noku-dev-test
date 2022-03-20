@@ -4,8 +4,10 @@
   float: left;
 
   &.right {
-    text-align: right;
-    float: right;
+    @media only screen and (min-width: 992px) {
+      text-align: right;
+      float: right;
+    }
   }
 
   .label {

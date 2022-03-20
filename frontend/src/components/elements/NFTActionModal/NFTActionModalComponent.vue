@@ -19,16 +19,40 @@
           </div>
         </div>
         <div class="modal-body">
-          <div class="row body-row">
-            <div class="col-sm-6">
-              <NokuInputComponent label="Place your bid" placeholder="1.000" />
+          <div class="row">
+            <div class="col-12">
+              <h3 class="modal-title">Buy {{ nftCard.name }} Card</h3>
+              <span class="amenties">
+                <!-- i don't know what is "15/500", maybe "in stock"? -->
+                {{ nftCard.type }} | {{ nftCard.rarity }} | 15/500
+              </span>
+              <div :class="{ expiration: true, sell: !isBid }">
+                <img
+                  class="clock"
+                  src="@/assets/img/icons/clock.svg"
+                  alt="Expiration"
+                />
+                Expire in: {{ displayTimer }}
+              </div>
             </div>
             <div class="col-sm-6">
+              <NokuInputComponent
+                v-if="isBid"
+                label="Place your bid"
+                placeholder="1.000"
+              />
+              <NokuInputComponent v-else :noku-price="59" :disabled="true" />
+              <div class="current-balance">
+                Current Balance: <span class="amount"> {{ amount }} NOKU </span>
+              </div>
+            </div>
+            <div v-if="isBid" class="col-sm-6">
               <NokuInputComponent
                 label="Starts from"
                 :noku-price="59"
                 :disabled="true"
               />
+              <div class="current-balance right">{{ bid.bidNumber }} bid</div>
             </div>
           </div>
         </div>
@@ -39,7 +63,7 @@
             </div>
             <div class="col-6">
               <button class="main-btn">
-                {{ type === "bid" ? "Make an offer" : "Buy now" }}
+                {{ isBid ? "Make an offer" : "Buy now" }}
               </button>
             </div>
           </div>
@@ -50,12 +74,13 @@
 </template>
 <script>
 import timerExpiration from "@/mixins/timerExpiration";
+import localeNumberFormat from "@/mixins/localeNumberFormat";
 import NokuInputComponent from "@/components/form/NokuInput/NokuInputComponent";
 
 export default {
   name: "NFTActionModalComponent",
   components: { NokuInputComponent },
-  mixins: [timerExpiration],
+  mixins: [timerExpiration, localeNumberFormat],
   props: {
     open: Boolean,
     nftCard: {
@@ -67,6 +92,10 @@ export default {
       type: String,
       required: true,
     },
+    bid: {
+      type: Object,
+      default: null,
+    },
   },
   data() {
     return {
@@ -75,8 +104,15 @@ export default {
     };
   },
   computed: {
+    isBid() {
+      return this.type === "bid";
+    },
     imageSrc() {
       return `${process.env.VUE_APP_S3_STORAGE_LINK}${this.nftCard.image}`;
+    },
+    amount() {
+      // random generate balance amount, should be a value in vuex store
+      return this.localeNumberFormat(Math.floor(Math.random() * 10000));
     },
   },
   watch: {
@@ -96,18 +132,16 @@ export default {
         );
       }
 
-      this.triggerBodyScroll(newVal);
+      this.triggerBodyScroll();
     },
   },
   methods: {
     closing() {
       this.$emit("closing", true);
     },
-    triggerBodyScroll(open) {
-      if (open)
-        document.getElementsByTagName("body")[0].classList.add("no-scroll");
-      else
-        document.getElementsByTagName("body")[0].classList.remove("no-scroll");
+    triggerBodyScroll() {
+      if (this.open) document.body.classList.add("no-scroll");
+      else document.body.classList.remove("no-scroll");
     },
   },
 };
