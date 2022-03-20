@@ -14,19 +14,19 @@
   {
     "_id": 2,
     "name": "Uniswap",
-    "price": 6,
+    "price": 10,
     "image": "/cards/2-uniswap.png",
     "type": "exchange",
     "rarity": "rare",
     "bid": {
       "bidNumber": 47,
-      "lastSalePrice": 9.93
+      "lastSalePrice": 7.93
     }
   },
   {
     "_id": 3,
     "name": "AAVE",
-    "price": 1.45,
+    "price": 4.45,
     "image": "/cards/3-aave.png",
     "type": "cryptocurrency",
     "rarity": "common",

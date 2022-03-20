@@ -41,7 +41,11 @@
                 label="Place your bid"
                 placeholder="1.000"
               />
-              <NokuInputComponent v-else :noku-price="59" :disabled="true" />
+              <NokuInputComponent
+                v-else
+                :noku-price="nftCard.price"
+                :disabled="true"
+              />
               <div class="current-balance">
                 Current Balance: <span class="amount"> {{ amount }} NOKU </span>
               </div>
@@ -49,7 +53,7 @@
             <div v-if="isBid" class="col-sm-6 mt-3 mt-sm-0">
               <NokuInputComponent
                 label="Starts from"
-                :noku-price="59"
+                :noku-price="nftCard.price"
                 :disabled="true"
               />
               <div class="current-balance right">{{ bid.bidNumber }} bid</div>
