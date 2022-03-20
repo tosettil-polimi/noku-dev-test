@@ -3,8 +3,18 @@
     <HeaderComponent :services="services" />
     <SubHeaderComponent :tabs="tabs" :selected-name="tabs[0].name" />
     <MarketplaceComponent />
-    <BidComponent />
-    <SellComponent />
+    <CardSectionComponent
+      type="bid"
+      title="NFTs BID"
+      subtitle="make an offer"
+      fetching-url="/bid"
+    />
+    <CardSectionComponent
+      type="sell"
+      title="NFTs SELL"
+      subtitle="buy now"
+      fetching-url="/sell"
+    />
   </main>
 </template>
 
@@ -14,14 +24,12 @@ import services from "@/json/services.json";
 import tabs from "@/json/tabs.json";
 import SubHeaderComponent from "@/components/layout/SubHeader/SubHeaderComponent";
 import MarketplaceComponent from "@/components/section/Marketplace/MarketplaceComponent";
-import BidComponent from "@/components/section/Bid/BidComponent";
-import SellComponent from "@/components/section/Sell/SellComponent";
+import CardSectionComponent from "@/components/section/Bid/CardSectionComponent";
 
 export default {
   name: "App",
   components: {
-    SellComponent,
-    BidComponent,
+    CardSectionComponent,
     MarketplaceComponent,
     SubHeaderComponent,
     HeaderComponent,
