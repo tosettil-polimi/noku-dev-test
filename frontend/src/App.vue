@@ -4,6 +4,7 @@
     <SubHeaderComponent :tabs="tabs" :selected-name="tabs[0].name" />
     <MarketplaceComponent />
     <BidComponent />
+    <SellComponent />
   </main>
 </template>
 
@@ -14,10 +15,12 @@ import tabs from "@/json/tabs.json";
 import SubHeaderComponent from "@/components/layout/SubHeader/SubHeaderComponent";
 import MarketplaceComponent from "@/components/section/Marketplace/MarketplaceComponent";
 import BidComponent from "@/components/section/Bid/BidComponent";
+import SellComponent from "@/components/section/Sell/SellComponent";
 
 export default {
   name: "App",
   components: {
+    SellComponent,
     BidComponent,
     MarketplaceComponent,
     SubHeaderComponent,

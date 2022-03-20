@@ -1,8 +1,8 @@
 <template>
-  <div class="container bid-section">
+  <div class="container sell-section">
     <div class="row align-items-sm-baseline">
       <div class="col-sm-10">
-        <TitleSectionComponent title="NFTs BID" subtitle="make an offer" />
+        <TitleSectionComponent title="NFTs SELL" subtitle="buy now" />
       </div>
       <div class="col-sm-2">
         <ViewAllComponent />
@@ -11,8 +11,7 @@
     <div class="row">
       <div v-for="card in cards" :key="card._id" class="col-md-6 col-xl-4">
         <NFTCardComponent
-          offer-type="bid"
-          :bid="card.bid"
+          offer-type="sell"
           :nft-card="card"
           :expiration="generateExpiration()"
         />
@@ -25,10 +24,10 @@ import { DateTime } from "luxon";
 import TitleSectionComponent from "@/components/typography/TitleSection/TitleSectionComponent";
 import ViewAllComponent from "@/components/typography/ViewAll/ViewAllComponent";
 import NFTCardComponent from "@/components/elements/NFTCard/NFTCardComponent";
-import cards from "@/json/bids.json";
+import cards from "@/json/sells.json";
 
 export default {
-  name: "BidComponent",
+  name: "SellComponent",
   components: { NFTCardComponent, ViewAllComponent, TitleSectionComponent },
   data() {
     return {
@@ -46,5 +45,5 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-@import "BidStyle";
+@import "SellStyle";
 </style>
