@@ -2,7 +2,9 @@ const Bid = require("../../models/monetize/bid");
 
 module.exports = {
   index: async (req, res) => {
-    const bids = await Bid.find({}).populate("card").lean();
+    const bids = await Bid.find({ expiration_date: { $gt: new Date() } })
+      .populate("card")
+      .lean();
 
     return res.json(
       bids.map((bid) => ({
