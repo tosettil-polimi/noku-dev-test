@@ -19,12 +19,12 @@
 </template>
 
 <script>
-import HeaderComponent from "@/components/layout/Header/HeaderComponent";
-import services from "@/json/services.json";
 import tabs from "@/json/tabs.json";
+import services from "@/json/services.json";
+import HeaderComponent from "@/components/layout/Header/HeaderComponent";
+import CardSectionComponent from "@/components/section/Bid/CardSectionComponent";
 import SubHeaderComponent from "@/components/layout/SubHeader/SubHeaderComponent";
 import MarketplaceComponent from "@/components/section/Marketplace/MarketplaceComponent";
-import CardSectionComponent from "@/components/section/Bid/CardSectionComponent";
 
 export default {
   name: "App",
