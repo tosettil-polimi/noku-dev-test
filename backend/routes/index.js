@@ -1,9 +1,11 @@
 const { NOT_FOUND, INTERNAL_SERVER_ERROR } = require("http-status");
 
 const bid = require("./monetize/bid");
+const sell = require("./monetize/sell");
 
 module.exports = (app) => {
   app.use("/bid", bid);
+  app.use("/sell", sell);
 
   /**
    * Error handling
