@@ -11,10 +11,6 @@
       "error",
       "stroustrup"
     ],
-    "comma-dangle": [
-      "error",
-      "never"
-    ],
     "no-unused-vars": [
       "warn"
     ],

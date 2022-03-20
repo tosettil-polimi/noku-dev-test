@@ -53,10 +53,12 @@
             <div v-if="isBid" class="col-sm-6 mt-3 mt-sm-0">
               <NokuInputComponent
                 label="Starts from"
-                :noku-price="nftCard.price"
+                :noku-price="nftCard.bid.lastOfferPrice"
                 :disabled="true"
               />
-              <div class="current-balance right">{{ bid.bidNumber }} bid</div>
+              <div class="current-balance right">
+                {{ nftCard.bid.bidNumber }} bid
+              </div>
             </div>
           </div>
         </div>
@@ -95,10 +97,6 @@ export default {
       // bid | sell
       type: String,
       required: true,
-    },
-    bid: {
-      type: Object,
-      default: null,
     },
   },
   data() {

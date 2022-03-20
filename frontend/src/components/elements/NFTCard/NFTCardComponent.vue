@@ -37,14 +37,14 @@
         <div class="row">
           <div class="col-lg-6">
             <CardLabelComponent
-              label="List price"
+              :label="offerType === 'bid' ? 'Starting price' : 'List price'"
               :noku-price="nftCard.price"
             />
           </div>
           <div v-if="offerType === 'bid'" class="col-lg-6">
             <CardLabelComponent
-              label="Last sale price"
-              :noku-price="bid.lastSalePrice"
+              label="Last offer price"
+              :noku-price="nftCard.bid.lastOfferPrice"
               orientation="right"
             />
           </div>
@@ -60,7 +60,7 @@
             <CardLabelComponent
               label="Bid"
               type="details"
-              :content="`${bid.bidNumber} Bid`"
+              :content="`${nftCard.bid.bidNumber} Bid`"
               orientation="right"
             />
           </div>
@@ -74,7 +74,6 @@
       :expiration="expiration"
       :open="modalOpened"
       :nft-card="nftCard"
-      :bid="bid"
       :type="offerType"
       @closing="modalOpened = false"
     />
@@ -106,11 +105,6 @@ export default {
       default: "sell",
     },
     // bidNumber, lastSalePrice will be calculated from backend db
-    bid: {
-      type: Object,
-      required: false,
-      default: null,
-    }, // { bidNumber: Number, lastSalePrice: Number }
   },
   data() {
     return {

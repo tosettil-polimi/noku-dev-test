@@ -9,12 +9,11 @@
       </div>
     </div>
     <div class="row">
-      <div v-for="card in cards" :key="card._id" class="col-md-6 col-xl-4">
+      <div v-for="bid in bids" :key="bid._id" class="col-md-6 col-xl-4">
         <NFTCardComponent
           offer-type="bid"
-          :bid="card.bid"
-          :nft-card="card"
-          :expiration="generateExpiration()"
+          :nft-card="bid"
+          :expiration="bid.expiration_date"
         />
       </div>
     </div>
@@ -22,25 +21,32 @@
 </template>
 <script>
 import { DateTime } from "luxon";
+import axios from "axios";
 import TitleSectionComponent from "@/components/typography/TitleSection/TitleSectionComponent";
 import ViewAllComponent from "@/components/typography/ViewAll/ViewAllComponent";
 import NFTCardComponent from "@/components/elements/NFTCard/NFTCardComponent";
-import cards from "@/json/bids.json";
 
 export default {
   name: "BidComponent",
   components: { NFTCardComponent, ViewAllComponent, TitleSectionComponent },
   data() {
     return {
-      cards,
+      bids: [],
     };
   },
+  mounted() {
+    this.fetchBids();
+  },
   methods: {
-    generateExpiration() {
-      return DateTime.now().plus({
-        seconds: Math.floor(Math.random() * 10000),
-        days: Math.floor(Math.random() * 10),
-      });
+    fetchBids() {
+      axios.get(`${process.env.VUE_APP_BACKEND_URL}/bid`).then(
+        (res) =>
+          (this.bids = res.data.map((bid) => ({
+            ...bid,
+            expiration_date: DateTime.fromISO(bid.expiration_date),
+            price: bid.starting_price,
+          })))
+      );
     },
   },
 };
