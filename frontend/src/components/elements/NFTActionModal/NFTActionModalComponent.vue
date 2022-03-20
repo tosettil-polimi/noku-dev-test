@@ -46,7 +46,7 @@
                 Current Balance: <span class="amount"> {{ amount }} NOKU </span>
               </div>
             </div>
-            <div v-if="isBid" class="col-sm-6">
+            <div v-if="isBid" class="col-sm-6 mt-3 mt-sm-0">
               <NokuInputComponent
                 label="Starts from"
                 :noku-price="59"
